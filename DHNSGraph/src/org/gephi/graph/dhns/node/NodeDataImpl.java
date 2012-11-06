@@ -157,10 +157,6 @@ public class NodeDataImpl implements NodeData, GroupData {
         }
     }
 
-    /**
-     * Returns size of the node
-     * @return Size of the node
-     */
     public float getRadius() {
         return size;
     }
@@ -274,4 +270,29 @@ public class NodeDataImpl implements NodeData, GroupData {
     public void setHullModel(Model hullModel) {
         this.hullModel = hullModel;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + this.ID;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final NodeDataImpl other = (NodeDataImpl) obj;
+        if (this.ID != other.ID) {
+            return false;
+        }
+        return true;
+    }
+    
+    
+    
 }

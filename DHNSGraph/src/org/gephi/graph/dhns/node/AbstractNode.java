@@ -284,4 +284,28 @@ public class AbstractNode implements Node, Group, AVLItem {
     public String toString() {
         return nodeData.getId();
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final AbstractNode other = (AbstractNode) obj;
+        if(other.getId() == this.getId()){
+            return true;
+        }
+        return false;
+    }
+    
+    
+    
 }

@@ -204,10 +204,16 @@ public abstract class HierarchicalGraphImpl extends AbstractGraphImpl implements
     public Node getOpposite(Node node, Edge edge) {
         checkNode(node);
         AbstractEdge absEdge = checkEdgeOrMetaEdge(edge);
-        if (absEdge.getSource(view.getViewId()) == node) {
-            return absEdge.getTarget(view.getViewId());
-        } else if (absEdge.getTarget(view.getViewId()) == node) {
-            return absEdge.getSource(view.getViewId());
+//        if (absEdge.getSource(view.getViewId()) == node) {
+//            return absEdge.getTarget(view.getViewId());
+//        } else if (absEdge.getTarget(view.getViewId()) == node) {
+//            return absEdge.getSource(view.getViewId());
+//        }
+        //TODO: Pouze docasne reseni, chce to vyresit proc je po filtrovani jine viewID u grafu a u jeho prvku (node edge)
+        if(edge.getSource().equals(node)){
+            return edge.getTarget();
+        } else if(edge.getTarget().equals(node)) {
+            return edge.getSource();
         }
         throw new IllegalArgumentException("Node must be either source or target of the edge.");
     }

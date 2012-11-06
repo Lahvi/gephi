@@ -165,4 +165,30 @@ public abstract class AbstractEdge implements Edge, AVLItem {
     public String toString() {
         return source.getId() + "-" + target.getId();
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 47 * hash + this.ID;
+        hash = 47 * hash + (this.source != null ? this.source.hashCode() : 0);
+        hash = 47 * hash + (this.target != null ? this.target.hashCode() : 0);
+        hash = 47 * hash + (this.edgeData != null ? this.edgeData.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final AbstractEdge other = (AbstractEdge) obj;
+        if (this.ID != other.ID) {
+            return false;
+        }
+        return true;
+    }
+    
 }

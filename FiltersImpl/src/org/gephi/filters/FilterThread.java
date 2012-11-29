@@ -149,7 +149,6 @@ public class FilterThread extends Thread {
         Graph result = processor.process((AbstractQueryImpl) query, graphModel);
 //        System.out.println("#Nodes: " + result.getNodeCount());
 //        System.out.println("#Edges: " + result.getEdgeCount());
-        result = new FilterEdgesFactory(graphModel.getGraph(), result).createHidenEdges();
         if (running) {
             GraphView view = result.getView();
             graphModel.setVisibleView(view);

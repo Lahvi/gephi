@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+OpenIDE-Module: org.profinit.nodetypefilter
+OpenIDE-Module-Localizing-Bundle: org/profinit/nodetypefilter/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+
